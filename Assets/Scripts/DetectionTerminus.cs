@@ -4,35 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class JeuxBille : MonoBehaviour
-
-
-
-
+public class DetectionTerminus : MonoBehaviour
 {
+    
     private float resetTemps = 5f;
     private float Temps;
 
     private bool Decompte = false;
-    [SerializeReference] private GameObject _plateforme;
-    // Start is called before the first frame update
-      void OnCollisionEnter(Collision collision)
+     void OnCollisionEnter(Collision collision)
       {
         if(collision.gameObject.CompareTag("Terminus"))
         {
             Decompte = true;
         }
       }
+    // Start is called before the first frame update
     void Start()
     {
-       Temps = resetTemps;
- 
+        Temps = resetTemps;
     }
 
     // Update is called once per frame
     void Update()
     {
-          if(Decompte)
+         if(Decompte)
           {
             Temps -= Time.deltaTime;
             if(Temps<=0)
@@ -40,13 +35,8 @@ public class JeuxBille : MonoBehaviour
              SceneManager.LoadScene(SceneManager.GetActiveScene().name);
              Debug.Log(Temps);
             }
-    }
-
         
     }
-    
-       public void DetruirePlateforme()
-        {
-            _plateforme.SetActive(false);
-        }
+
+    }     
 }
