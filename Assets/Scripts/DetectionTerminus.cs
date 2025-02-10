@@ -33,9 +33,8 @@ public class DetectionTerminus : MonoBehaviour
             if(Temps<=0)
             {
              SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-             Debug.Log(Temps);
             }
-        
+    
     }
 
     }     
